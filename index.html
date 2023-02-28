@@ -7,6 +7,36 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <div id="root">
+    <div id="first"></div>
+    <div id="second"></div>  
+  </div>
+
+  <script>
+    console.dir(root.style);
+    console.log(root);
+    
+    function idStyle(id, width, height, border) {
+      const root = document.getElementById(id);
+      id.style.width = width;
+      id.style.height = height;
+      id.style.border = border;
+    }
+    let rootStyle = idStyle(root, "500px", "500px", "1px solid black");
+    let firstStyle = idStyle(first, "200px", "200px", "1px solid red");
+    let secondStyle = idStyle(second , "200px", "200px", "1px solid green");
+    
+    function makeElement (tagName, textNode, width, height, bgColor) {
+      let element = document.createElement(tagName);
+      element.innerText = textNode;
+      element.style.width = width;
+      element.style.height = height;
+      element.style.backgroundColor = bgColor;
+      return element;
+    }
+    first.appendChild(makeElement('section', 'hello!', '100px', '100px', 'coral'));
+    second.appendChild(makeElement('section', 'hello!', '100px', '100px', 'cadetblue'));
+    
+  </script>
 </body>
 </html>
